@@ -650,6 +650,7 @@ async def auto_filter(client, msg, spoll=False):
             search = message.text
             files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
             if not files:
+                await client.send_message(req_channel, f"#Requested_logs \n\n**Content Name:**`{search}` \n**Requested By:** {message.from_user.first_name}\n**User ID:** {message.from_user.id}", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Mark as done", callback_data="close_data")]]))
                 if settings["spell_check"]:
                     return await advantage_spell_chok(msg)
                 else:
