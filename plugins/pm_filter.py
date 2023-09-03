@@ -20,6 +20,10 @@ from database.filters_mdb import (
     find_filter,
     get_filters,
 )
+
+import os
+req_channel = int(os.environ.get('Req_channel','-1001935441272'))
+
 import logging
 
 logger = logging.getLogger(__name__)
